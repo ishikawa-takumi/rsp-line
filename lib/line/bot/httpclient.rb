@@ -45,7 +45,6 @@ module Line
         puts header
         puts "post"
         http(uri).post(uri.request_uri, payload, header)
-        puts "after post"
       end
     end
   end
