@@ -47,6 +47,7 @@ def callback
   }
     puts "df;alsjKJGFeecbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
 
-  "OK"
+  #"OK"
+  render status: 200, json: { message: 'OK' }
 end
 end
