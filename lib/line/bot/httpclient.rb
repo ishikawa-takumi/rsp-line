@@ -39,8 +39,10 @@ module Line
       def post(url, payload, header = {})
         uri = URI(url)
         puts "post" 
+        puts url
         puts uri
         puts payload
+        puts header
         puts "post"
         http(uri).post(uri.request_uri, payload, header)
         puts "after post"
