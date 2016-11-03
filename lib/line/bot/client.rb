@@ -99,7 +99,7 @@ module Line
           config.endpoint_path  = '/message/reply'
           config.credentials    = credentials
           config.reply_token    = token
-          config.messages       = messages
+          config.messages       = "AAAA"
         end
 
         request.post
