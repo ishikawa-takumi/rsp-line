@@ -1,3 +1,5 @@
+require 'line/bot'
+
 class WebhookController < ApplicationController
   protect_from_forgery with: :null_session # CSRF対策無効化
 
@@ -15,6 +17,7 @@ def callback
   unless client.validate_signature(body, signature)
     error 400 do 'Bad Request' end
   end
+  client.validate_signature(body, signature)
 
   events = client.parse_events_from(body)
   events.each { |event|
