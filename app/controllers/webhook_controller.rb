@@ -40,8 +40,11 @@ def callback
         tf = Tempfile.open("content")
         tf.write(response.body)
       end
+      puts "FeecbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
     end
+    puts "KJGFeecbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
   }
+    puts "df;alsjKJGFeecbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
 
   "OK"
 end
