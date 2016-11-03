@@ -40,6 +40,7 @@ module Line
         uri = URI(url)
         puts "post" 
         puts uri
+        puts payload
         puts "post"
         http(uri).post(uri.request_uri, payload, header)
         puts "after post"
