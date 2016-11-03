@@ -32,6 +32,7 @@ def callback
           type: 'text',
           text: event.message['text']
         }
+        puts "iecbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
         client.reply_message(event['replyToken'], message)
         puts "ecbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
       when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
