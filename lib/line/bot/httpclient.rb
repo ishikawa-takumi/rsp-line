@@ -23,7 +23,7 @@ module Line
 
       # @return [Net::HTTP]
       def http(uri)
-        proxy_class = Net::HTTP::Proxy('http://fixie:rjaTCijMsEuj2fC@velodrome.usefixie.com', 80)
+        proxy_class = Net::HTTP::Proxy('proxy.fixie:rjaTCijMsEuj2fC@velodrome.usefixie.com', 80)
         http = proxy_class.new(uri.host, uri.port)
         #http = Net::HTTP.new(uri.host, uri.port)
         p uri.host
