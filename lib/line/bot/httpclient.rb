@@ -24,6 +24,8 @@ module Line
       # @return [Net::HTTP]
       def http(uri)
         http = Net::HTTP.new(uri.host, uri.port)
+        p uri.host
+        p uri.port
         if uri.scheme == "https"
           http.use_ssl = true
         end
@@ -43,7 +45,6 @@ module Line
         puts uri
         puts payload
         puts header
-        puts uri.request_uri
         puts "post"
         http(uri).post(uri.request_uri, payload, header)
       end
