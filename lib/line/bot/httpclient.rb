@@ -23,13 +23,10 @@ module Line
 
       # @return [Net::HTTP]
       def http(uri)
-        proxy_class = Net::HTTP::Proxy('proxy.fixie:rjaTCijMsEuj2fC@velodrome.usefixie.com', 80)
-        http = proxy_class.new(uri.host, uri.port)
+        proxy = URI(ENV["FIXIE_URL"])
+        http = Net::HTTP.new(uri.host, uri.port, proxy.host, proxy.port, proxy.user, proxy.password)
         #http = Net::HTTP.new(uri.host, uri.port)
-        p uri.host
-        p uri.port
         if uri.scheme == "https"
-          p "use https"
           http.use_ssl = true
         end
 
