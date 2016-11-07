@@ -43,6 +43,7 @@ module Line
         puts uri
         puts payload
         puts header
+        puts uri.request_uri
         puts "post"
         http(uri).post(uri.request_uri, payload, header)
       end
