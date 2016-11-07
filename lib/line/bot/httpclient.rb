@@ -27,6 +27,7 @@ module Line
         p uri.host
         p uri.port
         if uri.scheme == "https"
+          p "use https"
           http.use_ssl = true
         end
 
