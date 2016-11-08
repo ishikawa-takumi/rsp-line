@@ -45,11 +45,13 @@ class WebhookController < ApplicationController
             type: 'text',
             text: event.message['text']
           }
-          response = client.reply_message(event['replyToken'], message)
+          client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
-          response = client.get_message_content(event.message['id'])
+          client.get_message_content(event.message['id'])
           tf = Tempfile.open("content")
+          p tf
           tf.write(response.body)
+          p response.body
         end
       end
     }
