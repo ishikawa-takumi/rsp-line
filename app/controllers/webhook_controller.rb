@@ -37,10 +37,10 @@ class WebhookController < ApplicationController
 
     events = client.parse_events_from(body)
     events.each do |event|
-      p event
       case event
       when Line::Bot::Event::Message
-        msg = Message.new(message_target_id: message_target.id, message_target_type: event["source"]["type"], message_type: event.type.to_sym, chat_id: message_target.chat_id)
+        p event
+        #msg = Message.new(message_target_id: message_target.id, message_target_type: event["source"]["type"], message_type: event.type.to_sym, chat_id: message_target.chat_id)
         case event.type
         when Line::Bot::Event::MessageType::Text
           message = {
