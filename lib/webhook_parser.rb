@@ -3,15 +3,16 @@ module RspApp
     def initialize(app, opts = {})
       @app = app
       @opts = opts
-      p "AAAAAAAAAAAA"
       super
     end
 
     def call(env)
-      p "BBBBBBBBBBBBBb"
       if @opts[:ignore_prefix].nil? or !env['PATH_INFO'].start_with?(@opts[:ignore_prefix])
         p @opts[:ignore_prefix]
         p env['PATH_INFO']
+        p @app
+        p @opts
+        p env
         super(env)
       else
         p "cccccccccccc"
