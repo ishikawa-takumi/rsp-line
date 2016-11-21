@@ -1,4 +1,4 @@
-module MyApp
+module RspApp
   class ParamsParser < ActionDispatch::ParamsParser
     def initialize(app, opts = {})
       @app = app
