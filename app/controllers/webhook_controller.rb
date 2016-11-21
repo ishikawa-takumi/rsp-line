@@ -17,6 +17,7 @@ module Line
 end
 
 class WebhookController < ApplicationController
+
   protect_from_forgery with: :null_session # CSRF対策無効化
 
   def client
@@ -28,7 +29,8 @@ class WebhookController < ApplicationController
 
   def callback
     p "AAAAAAAfsdfsAAAAAAAAAA"
-    body = request.body.read
+    #body = request.body.read
+    body = JSON.parse(URI.decode(request.body.read).match(/\A"(.+)"\Z/)[1].gsub(/\\/, ''))
     orgsrc = params[:OriginalSourceUrl]
     p "AAAAAAAAAAAAAAAAA"
     p orgsrc
