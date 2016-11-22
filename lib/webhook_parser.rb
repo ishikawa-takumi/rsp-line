@@ -10,8 +10,7 @@ module RspApp
       if @opts[:ignore_prefix].nil? or !env['PATH_INFO'].start_with?(@opts[:ignore_prefix])
         super(env)
       else
-        p env
-        @app.call(env)
+        p @app.call(env)
       end
     end
   end

@@ -30,10 +30,6 @@ class WebhookController < ApplicationController
   def callback
     body = request.body.read
     #body = JSON.parse(URI.decode(body1).match(/\A"(.+)"\Z/)[1].gsub(/\\/, ''))
-    orgsrc = params[:OriginalSourceUrl]
-    p "AAAAAAAAAAAAAAAAA"
-    p orgsrc
-    p "BBBBBBBBBBBBBBBBBBB"
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
     # this statement maybe mistake.
