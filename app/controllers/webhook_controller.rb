@@ -28,16 +28,8 @@ class WebhookController < ApplicationController
   end
 
   def callback
-    #body = request.body.read
-    p "CCCCCCCCCCCCCCCCCCCCC"
-    body1 = request.body.read
-    p "AAAAAAAAAAAAAAAAA"
-    p body1
-    p "BBBBBBBBBBBBBBBBBBB"
-    p URI.decode(body1)
-    p URI.decode(body1).match(/\A"(.+)"\Z/)[1]
-    p URI.decode(body1).match(/\A"(.+)"\Z/)[1].gsub(/\\/, '')
-    body = JSON.parse(URI.decode(body1).match(/\A"(.+)"\Z/)[1].gsub(/\\/, ''))
+    body = request.body.read
+    #body = JSON.parse(URI.decode(body1).match(/\A"(.+)"\Z/)[1].gsub(/\\/, ''))
     orgsrc = params[:OriginalSourceUrl]
     p "AAAAAAAAAAAAAAAAA"
     p orgsrc
