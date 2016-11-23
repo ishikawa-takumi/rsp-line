@@ -28,10 +28,10 @@ class WebhookController < ApplicationController
   end
 
   def callback
-    body1 = request.body.read
-    p body1
-    body = request.env["rack.input"].gets
-    p body
+    body = request.body.read
+    #p body1
+    #body = request.env["rack.input"].gets
+    #p body
     #body = JSON.parse(URI.decode(body1).match(/\A"(.+)"\Z/)[1].gsub(/\\/, ''))
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -45,12 +45,13 @@ class WebhookController < ApplicationController
       case event
       when Line::Bot::Event::Message
         p event
-        #msg = Message.new(message_target_id: message_target.id, message_target_type: event["source"]["type"], message_type: event.type.to_sym, chat_id: message_target.chat_id)
         case event.type
         when Line::Bot::Event::MessageType::Text
           message = {
-            type: 'text',
-            text: event.message['text']
+            #type: 'text',
+            #text: event.message['text']
+            type: 'image',
+            originalSourceUrl: 'https://farm6.staticflickr.com/5444/31150114686_f195c9cea9_o.jpg'
           }
           client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
