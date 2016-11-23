@@ -8,12 +8,15 @@ module RspApp
 
     def call(env)
       if @opts[:ignore_prefix].nil? or !env['PATH_INFO'].start_with?(@opts[:ignore_prefix])
+        p "AAAAAAAAAAAAAAA"
         super(env)
+        p "BAAAAAAAAAAAAAA"
       else
-       res = @app.call(env)
-       p "AAAAAAAAAAAAAAA"
-       p res
-       p "AAAAAAAAAAAAAAA"
+        p "cAAAAAAAAAAAAAA"
+        res = @app.call(env)
+        p "dAAAAAAAAAAAAAA"
+        p res
+        res
       end
     end
   end
