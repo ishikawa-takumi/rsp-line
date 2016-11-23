@@ -13,8 +13,9 @@ module RspApp
         p "BAAAAAAAAAAAAAA"
       else
         p "cAAAAAAAAAAAAAA"
-        res = @app.call(env)
+        p @app
         p "dAAAAAAAAAAAAAA"
+        res = @app.call(env)
         p res
         res
       end
