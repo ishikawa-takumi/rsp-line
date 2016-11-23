@@ -28,10 +28,10 @@ class WebhookController < ApplicationController
   end
 
   def callback
-    body = request.env["rack.input"].gets
-    p body
     body1 = request.body.read
     p body1
+    body = request.env["rack.input"].gets
+    p body
     #body = JSON.parse(URI.decode(body1).match(/\A"(.+)"\Z/)[1].gsub(/\\/, ''))
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
