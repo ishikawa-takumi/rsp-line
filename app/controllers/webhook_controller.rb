@@ -28,6 +28,7 @@ class WebhookController < ApplicationController
   end
 
   def callback
+    p "AAAAA"
     body = request.env["rack.input"].gets
 
     p body
