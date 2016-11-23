@@ -28,7 +28,7 @@ class WebhookController < ApplicationController
   end
 
   def callback
-    body = request.env["env.input"].gets
+    body = request.env["rack.input"].gets
 
     message = {
       #type: 'text',
