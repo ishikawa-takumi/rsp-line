@@ -51,8 +51,8 @@ class WebhookController < ApplicationController
             #type: 'text',
             #text: event.message['text']
             type: 'image',
-            originalContentUrl: 'https://farm6.staticflickr.com/5444/31150114686_f195c9cea9_o.jpg'
-            previewImageUrl: 'https://farm6.staticflickr.com/5444/31150114686_f195c9cea9_o.jpg'
+            originalContentUrl: "https://farm6.staticflickr.com/5444/31150114686_f195c9cea9_o.jpg",
+            previewImageUrl: "https://farm6.staticflickr.com/5444/31150114686_f195c9cea9_o.jpg"
           }
           client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
