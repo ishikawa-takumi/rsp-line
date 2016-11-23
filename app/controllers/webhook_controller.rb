@@ -28,48 +28,23 @@ class WebhookController < ApplicationController
   end
 
   def callback
-    body = request.body.read
-    #p body1
-    #body = request.env["rack.input"].gets
-    #p body
-    #body = JSON.parse(URI.decode(body1).match(/\A"(.+)"\Z/)[1].gsub(/\\/, ''))
+    p "AAAAA"
+    body = request.env["rack.input"].gets
 
-    signature = request.env['HTTP_X_LINE_SIGNATURE']
-    # this statement maybe mistake.
-    unless client.validate_signature(body, signature)
-      error 400 do 'Bad Request' end
-    end
+    p body
+    p "AAAAAAAA"
 
-    events = client.parse_events_from(body)
-    events.each do |event|
-      case event
-      when Line::Bot::Event::Message
-        p event
-        case event.type
-        when Line::Bot::Event::MessageType::Text
-          message = {
-            #type: 'text',
-            #text: event.message['text']
-            type: 'image',
-            originalContentUrl: "https://farm6.staticflickr.com/5444/31150114686_f195c9cea9_o.jpg",
-            previewImageUrl: "https://farm6.staticflickr.com/5444/31150114686_f195c9cea9_o.jpg"
-          }
-          client.reply_message(event['replyToken'], message)
-        when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
-          message = {
-            type: 'image', 
-            originalCotentUrl: msg.message_image_url,
-            previewImageUrl: msg.message_image_thumbnail_url
-          }
-          client.get_message_content(event.message['id'])
-          #tf = Tempfile.open("content")
-          #tf.write(response.body)
-          #client.reply_message(event['replyToken'], message)
-        end
-      end
-    end
-    
-
+    message = {
+      #type: 'text',
+      #text: event.message['text']
+      type: 'image',
+      originalContentUrl: body,
+      previewImageUrl: body
+    }
+    p "BAAAAAAA"
+    client.push_message("U5c1d32a3b59a0baae342473e1e996cf3", message)
+    p "CAAAAAAA"
     render status: 200, json: { message: 'OK' }
-  end
+    #render :nothing => true
+  end 
 end
