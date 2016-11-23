@@ -78,6 +78,7 @@ module Line
           config.to             = user_id
           config.messages       = messages
         end
+        p request
 
         request.post
       end
