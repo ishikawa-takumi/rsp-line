@@ -30,6 +30,9 @@ class WebhookController < ApplicationController
   def callback
     body = request.env["rack.input"].gets
 
+    p body
+    p "AAAAAAAA"
+
     message = {
       #type: 'text',
       #text: event.message['text']
@@ -37,7 +40,9 @@ class WebhookController < ApplicationController
       originalContentUrl: body,
       previewImageUrl: body
     }
+    p "BAAAAAAA"
     client.push_message("5245371047506", message)
+    p "CAAAAAAA"
   end
 
 
