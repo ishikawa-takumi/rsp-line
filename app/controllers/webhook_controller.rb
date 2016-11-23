@@ -45,9 +45,7 @@ class WebhookController < ApplicationController
     p "BAAAAAAA"
     client.push_message("5245371047506", message)
     p "CAAAAAAA"
-  end
-
-
-  #render status: 200, json: { message: 'OK' }
-  render :nothing => true
+    #render status: 200, json: { message: 'OK' }
+    render :nothing => true
+  end 
 end
