@@ -49,4 +49,5 @@ class WebhookController < ApplicationController
 
 
   #render status: 200, json: { message: 'OK' }
+  render :nothing => true
 end
