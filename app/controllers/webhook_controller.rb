@@ -16,6 +16,7 @@ module Line
   end
 end
 
+
 class WebhookController < ApplicationController
 
   protect_from_forgery with: :null_session # CSRF対策無効化
@@ -28,11 +29,7 @@ class WebhookController < ApplicationController
   end
 
   def callback
-    p "AAAAA"
     body = request.env["rack.input"].gets
-
-    p body
-    p "AAAAAAAA"
 
     message = {
       #type: 'text',
@@ -41,9 +38,7 @@ class WebhookController < ApplicationController
       originalContentUrl: body,
       previewImageUrl: body
     }
-    p "BAAAAAAA"
     client.push_message("U5c1d32a3b59a0baae342473e1e996cf3", message)
-    p "CAAAAAAA"
     render status: 200, json: { message: 'OK' }
     #render :nothing => true
   end 
